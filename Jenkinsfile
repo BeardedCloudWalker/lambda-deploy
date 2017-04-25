@@ -15,7 +15,7 @@ node {
 
   stage 'Test via Invokation'
     result = sh(returnStdout: true, script: "aws lambda invoke --function-name helloworld:TEST --payload file://./test.json --region us-west-2 output.txt")
-    if (!result.contains("200") {
+    if (!result.contains("200")) {
        error: "Error in Lambda Invokation"
     }
 
