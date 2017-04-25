@@ -6,12 +6,5 @@ exports.handler = function(event, context, callback) {
     console.log('value3 =', event.key3);
     callback(null, "BETA");  
    
-   let response = {
-    statusCode: '400',
-    body: JSON.stringify({ error: 'you messed up!' }),
-    headers: {
-        'Content-Type': 'application/json',
-    }
 };
 
-context.succeed(response);
