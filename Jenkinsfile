@@ -11,7 +11,7 @@ node {
     version = sh(returnStdout: true, script: "aws lambda update-function-code --function-name helloworld --zip-file fileb://./helloworld.zip --publish --region us-west-2 --query 'Version' --output text")
 
   stage 'Deploy to Test'
-    sh "aws lambda update-alias --function-name helloworld --name TEST --function-version ${version} --region us-west-2"
+    sh "aws lambda update-alias --function-name helloworld --name TEST --region us-west-2 --function-version ${version} "
 
   stage 'Test via Invokation'
     result = sh(returnStdout: true, script: "aws lambda invoke --function-name helloworld:TEST --payload file://./test.json --region us-west-2 output.txt")
