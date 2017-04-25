@@ -22,5 +22,4 @@ node {
   stage 'Promote to Prod'
      sh "aws lambda update-alias --function-name helloworld --name PROD --function-version ${version} --region us-west-2"
      
-    }
 }
